@@ -3,15 +3,13 @@ import {
   Navbar,
   NavbarBrand,
   NavbarItem,
-  Input,
   NavbarContent,
 } from "@nextui-org/react";
 import HeaderAuth from "./HeaderAuth";
+import SearchInput from "./SearchInput";
+import { Suspense } from "react";
 
 const Header = () => {
-
- 
-
   return (
     <Navbar className="shadow mb-6">
       <NavbarBrand>
@@ -21,11 +19,15 @@ const Header = () => {
       </NavbarBrand>
       <NavbarContent justify="center">
         <NavbarItem>
-          <Input />
+          <Suspense>
+            <SearchInput />
+          </Suspense>
         </NavbarItem>
       </NavbarContent>
 
-      <NavbarContent justify="end"><HeaderAuth /></NavbarContent>
+      <NavbarContent justify="end">
+        <HeaderAuth />
+      </NavbarContent>
     </Navbar>
   );
 };
